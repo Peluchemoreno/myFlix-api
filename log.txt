@@ -34,3 +34,19 @@ Timestamp: Sun Jun 29 2025 15:47:30 GMT-0500 (Central Daylight Time)
 ▶️  URL: /favicon.ico
 ▶️  Timestamp: Sun Jun 29 2025 15:52:31 GMT-0500 (Central Daylight Time)
 
+::ffff:127.0.0.1 - - [30/Jun/2025:23:27:59 +0000] "GET / HTTP/1.1" 200 28 "-" "Mozilla/5.0 (X11; Linux x86_64; rv:139.0) Gecko/20100101 Firefox/139.0"
+::ffff:127.0.0.1 - - [30/Jun/2025:23:27:59 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://localhost:9090/" "Mozilla/5.0 (X11; Linux x86_64; rv:139.0) Gecko/20100101 Firefox/139.0"
+::ffff:127.0.0.1 - - [30/Jun/2025:23:28:08 +0000] "GET /movies HTTP/1.1" 200 2 "-" "Mozilla/5.0 (X11; Linux x86_64; rv:139.0) Gecko/20100101 Firefox/139.0"
+::ffff:127.0.0.1 - - [30/Jun/2025:23:28:09 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://localhost:9090/movies" "Mozilla/5.0 (X11; Linux x86_64; rv:139.0) Gecko/20100101 Firefox/139.0"
+::ffff:127.0.0.1 - - [30/Jun/2025:23:29:19 +0000] "GET /movies HTTP/1.1" 200 2 "-" "Mozilla/5.0 (X11; Linux x86_64; rv:139.0) Gecko/20100101 Firefox/139.0"
+::ffff:127.0.0.1 - - [30/Jun/2025:23:49:20 +0000] "GET /movies HTTP/1.1" 304 - "-" "Mozilla/5.0 (X11; Linux x86_64; rv:139.0) Gecko/20100101 Firefox/139.0"
+::ffff:127.0.0.1 - - [30/Jun/2025:23:49:20 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://localhost:9090/movies" "Mozilla/5.0 (X11; Linux x86_64; rv:139.0) Gecko/20100101 Firefox/139.0"
+::ffff:127.0.0.1 - - [30/Jun/2025:23:49:34 +0000] "GET /movies HTTP/1.1" 200 662 "-" "Mozilla/5.0 (X11; Linux x86_64; rv:139.0) Gecko/20100101 Firefox/139.0"
+::ffff:127.0.0.1 - - [30/Jun/2025:23:49:34 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://localhost:9090/movies" "Mozilla/5.0 (X11; Linux x86_64; rv:139.0) Gecko/20100101 Firefox/139.0"
+::ffff:127.0.0.1 - - [01/Jul/2025:00:01:42 +0000] "GET /movies HTTP/1.1" 200 1365 "-" "Mozilla/5.0 (X11; Linux x86_64; rv:139.0) Gecko/20100101 Firefox/139.0"
+::ffff:127.0.0.1 - - [01/Jul/2025:00:01:42 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://localhost:9090/movies" "Mozilla/5.0 (X11; Linux x86_64; rv:139.0) Gecko/20100101 Firefox/139.0"
+::1 - - [01/Jul/2025:00:02:05 +0000] "GET / HTTP/1.1" 200 28 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
+::1 - - [01/Jul/2025:00:02:06 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://localhost:9090/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
+::1 - - [01/Jul/2025:00:02:11 +0000] "GET /documentation HTTP/1.1" 404 152 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
+::1 - - [01/Jul/2025:00:02:15 +0000] "GET /documentation.html HTTP/1.1" 200 403 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
+::1 - - [01/Jul/2025:00:02:26 +0000] "GET /movies HTTP/1.1" 200 1365 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
