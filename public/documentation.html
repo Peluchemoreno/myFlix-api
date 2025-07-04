@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
     <title>myFlix API Docs</title>
   </head>
   <body class="page">
@@ -10,5 +11,154 @@
     <p class="page__description">
       This is the documentation for interfacing with the myFlix API.
     </p>
+    <table class="page__table">
+      <thead>
+        <tr>
+          <td>Method</td>
+          <td>Description</td>
+          <td>URL Endpoint</td>
+          <td>Request Body Format</td>
+          <td>Response</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="get">GET</td>
+          <td>Returns a list of movies</td>
+          <td><blockquote>/movies</blockquote></td>
+          <td>None</td>
+          <td>
+            Returns a list of movies using the format from the below response
+          </td>
+        </tr>
+        <tr>
+          <td class="get">GET</td>
+          <td>Returns a single movie</td>
+          <td><blockquote>/movies/{title}</blockquote></td>
+          <td>None</td>
+          <td>
+            <pre>
+{
+  "title": "Chronicle",
+  "description": "Three high school friends gain superpowers after making an incredible discovery underground. Soon they find their lives spinning out of control.",
+  "genre": {
+      "name": "sci‑fi",
+      "description": "Stories rooted in speculative science, futuristic technology, or unexplored possibilities."
+  },
+  "imageURL": "https://m.media-amazon.com/images/M/MV5BMjE0NzY4NjE2Nl5BMl5BanBnXkFtZTcwMjUxNTQyNA@@._V1_.jpg",
+  "director": {
+      "name": "Josh Trank",
+      "bio": "American filmmaker known for his found-footage sci-fi debut Chronicle (2012), later directed Fantastic Four (2015) and Capone (2020).",
+      "birthYear": 1984,
+      "deathYear": null
+  },
+  "featured": false
+},
+           </pre
+            >
+          </td>
+        </tr>
+        <tr>
+          <td class="get">GET</td>
+          <td>Returns details about a specific genre by name</td>
+          <td><blockquote>/genres/{name}</blockquote></td>
+          <td>None</td>
+          <td>
+            <pre>
+{
+  "name": "buddy comedy",
+  "description": "Films focused on the friendship and comedic dynamic between two or more main characters."
+}
+          </pre
+            >
+          </td>
+        </tr>
+        <tr>
+          <td class="get">GET</td>
+          <td>Returns data about a specific director by name</td>
+          <td><blockquote>/directors/{name}</blockquote></td>
+          <td>None</td>
+          <td>
+            <pre>
+{
+  "name": "Josh Trank",
+  "bio": "American filmmaker known for his found-footage sci-fi debut Chronicle (2012), later directed Fantastic Four (2015) and Capone (2020).",
+  "birthYear": 1984,
+  "deathYear": null
+}
+          </pre
+            >
+          </td>
+        </tr>
+        <tr>
+          <td class="post">POST</td>
+          <td>Registers a new user</td>
+          <td><blockquote>/users</blockquote></td>
+          <td>
+            <pre>
+{
+  "name": "test user new",
+  "favoriteMovies": []
+}
+          </pre
+            >
+          </td>
+          <td>
+            <pre>
+{
+  "name": "test user",
+  "favoriteMovies": [],
+  "id": "7688523e-5ca8-48b3-8a89-6a39c2f3000f"
+}
+           </pre
+            >
+          </td>
+        </tr>
+        <tr>
+          <td class="put">PUT</td>
+          <td>Updates and returns a user's username by ID</td>
+          <td><blockquote>/users/{id}</blockquote></td>
+          <td>
+            <pre>
+{
+  "name": "test user new"
+}
+          </pre
+            >
+          </td>
+          <td>
+            <pre>
+{
+  "id": 1,
+  "name": "test user new",
+  "favoriteMovies": []
+}
+            </pre>
+          </td>
+        </tr>
+        <tr>
+          <td class="post">POST</td>
+          <td>Adds a movie by totle to a user's favorites list</td>
+          <td><blockquote>/users/{id}/{movieTitle}</blockquote></td>
+          <td>None</td>
+          <td>{MovieTitle} was added to {userId}'s favorites list</td>
+        </tr>
+        <tr></tr>
+        <tr>
+          <td class="delete">DELETE</td>
+          <td>Removes a movie by title from a user's favorites list</td>
+          <td><blockquote>/users/{id}/{movieTitle}</blockquote></td>
+          <td>None</td>
+          <td>{MovieTitle} was removed from {userId}'s favorites list</td>
+        </tr>
+        <tr>
+          <td class="delete">DELETE</td>
+          <td>Removes a user</td>
+          <td><blockquote>/users/{id}</blockquote></td>
+          <td>None</td>
+          <td>{User} was deleted.</td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>

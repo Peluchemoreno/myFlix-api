@@ -15,19 +15,6 @@ app.use(morgan("combined", { stream: accessLogStream }));
 app.use(bodyParser.json());
 app.use(express.static("public"));
 
-let users = [
-  {
-    id: 1,
-    name: "justinm",
-    favoriteMovies: [],
-  },
-  {
-    id: 2,
-    name: "justinm2",
-    favoriteMovies: [],
-  },
-];
-
 const movieArray = [
   {
     title: "Chronicle",
@@ -247,98 +234,17 @@ app.get("/genres/:name", (req, res) => {
   }
 });
 
-app.get("/directors/:name", (req, res) => {
-  let movie = movieArray.find((movie) => {
+app.get('/directors/:name', (req, res) => {
+  let movie = movieArray.fine(movie => {
     return movie.director.name.toLowerCase() === req.params.name.toLowerCase();
-  });
-
-  if (!movie) {
-    res.send(404).send("Sorry there is no such director in the data");
+  })
+  
+  if (!movie){
+    res.send(404).send('Sorry there is no such director in the data')
   } else {
-    res.status(200).json(movie.director);
+    res.status(200).json(movie.director)
   }
-});
-
-app.post("/users", (req, res) => {
-  const newUser = req.body;
-
-  if (newUser.name) {
-    newUser.id = uuid.v4();
-    users.push(newUser);
-    res.status(201).json(newUser);
-  } else {
-    res.send(400);
-  }
-});
-
-app.put("/users/:id", (req, res) => {
-  const { id } = req.params;
-  const updateUser = req.body;
-
-  let user = users.find((user) => {
-    return user.id == id;
-  });
-
-  if (user) {
-    user.name = updateUser.name;
-    res.status(200).json(user);
-  } else {
-    res.status(404).send("No user with this id");
-  }
-});
-
-app.post("/users/:id/:movieTitle", (req, res) => {
-  const { id, movieTitle } = req.params;
-
-  let user = users.find((user) => {
-    return user.id == id;
-  });
-
-  if (user) {
-    user.favoriteMovies.push(movieTitle);
-    res
-      .status(201)
-      .send(`${movieTitle} successfully added to ${user.id} favotires list`);
-  } else {
-    res.status(400).send("no such user");
-  }
-});
-
-app.delete("/users/:id/:movieTitle", (req, res) => {
-  const { id, movieTitle } = req.params;
-  let user = users.find((user) => {
-    return user.id == id;
-  });
-
-  if (user) {
-    user.favoriteMovies = user.favoriteMovies.filter((movie) => {
-      return movie !== movieTitle;
-    });
-    res
-      .status(200)
-      .send(
-        `${movieTitle} successfully removed from ${user.id} favorites list`
-      );
-  } else {
-    res.status(400).send("No such user found");
-  }
-});
-
-app.delete("/users/:id", (req, res) => {
-  const { id } = req.params;
-  let user = users.find((user) => {
-    return user.id == id;
-  });
-
-  if (user) {
-    users = users.filter((user) => {
-      return user.id != id;
-    });
-    res.status(200).send(`${user.id} successfully removed.`);
-  } else {
-    res.status(400).send("No such user found");
-  }
-});
+})
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
