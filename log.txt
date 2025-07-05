@@ -258,3 +258,4 @@ Timestamp: Sun Jun 29 2025 15:47:30 GMT-0500 (Central Daylight Time)
 ::1 - - [04/Jul/2025:17:53:53 +0000] "POST /users/2/Chronicle HTTP/1.1" 201 48 "-" "PostmanRuntime/7.43.0"
 ::1 - - [04/Jul/2025:17:54:22 +0000] "DELETE /users/2/Chronicle HTTP/1.1" 200 52 "-" "PostmanRuntime/7.43.0"
 ::1 - - [04/Jul/2025:17:55:08 +0000] "DELETE /users/2/ HTTP/1.1" 200 23 "-" "PostmanRuntime/7.43.0"
+::1 - - [05/Jul/2025:13:28:27 +0000] "POST /users/2/movies/Chronicle HTTP/1.1" 201 48 "-" "PostmanRuntime/7.43.0"

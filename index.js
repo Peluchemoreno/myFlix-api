@@ -287,7 +287,7 @@ app.put("/users/:id", (req, res) => {
   }
 });
 
-app.post("/users/:id/:movieTitle", (req, res) => {
+app.post("/users/:id/movies/:movieTitle", (req, res) => {
   const { id, movieTitle } = req.params;
 
   let user = users.find((user) => {
@@ -304,7 +304,7 @@ app.post("/users/:id/:movieTitle", (req, res) => {
   }
 });
 
-app.delete("/users/:id/:movieTitle", (req, res) => {
+app.delete("/users/:id/movies/:movieTitle", (req, res) => {
   const { id, movieTitle } = req.params;
   let user = users.find((user) => {
     return user.id == id;
