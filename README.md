@@ -1,4 +1,4 @@
-# myFlix API
+# 🎥 myFlix API
 
 This API allows for user creation and management of users' favorite movies.
 
@@ -25,6 +25,7 @@ This is the myFlix API. It allows for users to browse through movie metadata as 
 - Node.js
 - Express.js
 - MongoDB
+- passport.js
 
 ## Installation
 
