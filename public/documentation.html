@@ -6,159 +6,153 @@
     <link rel="stylesheet" href="./style.css" />
     <title>myFlix API Docs</title>
   </head>
-  <body class="page">
-    <h1 class="page__title">myFlix API Documentation</h1>
-    <p class="page__description">
+  <body>
+    <h1>📽️ MyFlix API</h1>
+    <p class="center">
       This is the documentation for interfacing with the myFlix API.
     </p>
-    <table class="page__table">
-      <thead>
-        <tr>
-          <td>Method</td>
-          <td>Description</td>
-          <td>URL Endpoint</td>
-          <td>Request Body Format</td>
-          <td>Response</td>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="get">GET</td>
-          <td>Returns a list of movies</td>
-          <td><blockquote>/movies</blockquote></td>
-          <td>None</td>
-          <td>
-            Returns a list of movies using the format from the below response
-          </td>
-        </tr>
-        <tr>
-          <td class="get">GET</td>
-          <td>Returns a single movie</td>
-          <td><blockquote>/movies/{title}</blockquote></td>
-          <td>None</td>
-          <td>
-            <pre>
+
+    <div class="endpoint endpoint-get">
+      <h2>
+        <span class="method get">GET</span> <span class="path">/movies</span>
+      </h2>
+      <p>Returns a full list of movies.</p>
+      <h3>Output:</h3>
+      <pre>
 {
-  "title": "Chronicle",
-  "description": "Three high school friends gain superpowers after making an incredible discovery underground. Soon they find their lives spinning out of control.",
-  "genre": {
-      "name": "sci‑fi",
-      "description": "Stories rooted in speculative science, futuristic technology, or unexplored possibilities."
-  },
-  "imageURL": "https://m.media-amazon.com/images/M/MV5BMjE0NzY4NjE2Nl5BMl5BanBnXkFtZTcwMjUxNTQyNA@@._V1_.jpg",
-  "director": {
-      "name": "Josh Trank",
-      "bio": "American filmmaker known for his found-footage sci-fi debut Chronicle (2012), later directed Fantastic Four (2015) and Capone (2020).",
-      "birthYear": 1984,
-      "deathYear": null
-  },
-  "featured": false
-},
-           </pre
-            >
-          </td>
-        </tr>
-        <tr>
-          <td class="get">GET</td>
-          <td>Returns details about a specific genre by name</td>
-          <td><blockquote>/genres/{name}</blockquote></td>
-          <td>None</td>
-          <td>
-            <pre>
+  "_id": "abc123",
+  "Title": "Inception",
+  "Description": "A thief who steals corporate secrets...",
+  "Genre": { "Name": "Sci-Fi", "Description": "..." },
+  "Director": { "Name": "Christopher Nolan", "Bio": "..." }
+}</pre
+      >
+    </div>
+
+    <div class="endpoint endpoint-get">
+      <h2>
+        <span class="method get">GET</span>
+        <span class="path">/movies/:title</span>
+      </h2>
+      <p>Get information about a movie by its title.</p>
+      <h3>Output:</h3>
+      <pre>
 {
-  "name": "buddy comedy",
-  "description": "Films focused on the friendship and comedic dynamic between two or more main characters."
-}
-          </pre
-            >
-          </td>
-        </tr>
-        <tr>
-          <td class="get">GET</td>
-          <td>Returns data about a specific director by name</td>
-          <td><blockquote>/directors/{name}</blockquote></td>
-          <td>None</td>
-          <td>
-            <pre>
+  "_id": "abc123",
+  "Title": "Inception",
+  ...
+}</pre
+      >
+    </div>
+
+    <div class="endpoint endpoint-get">
+      <h2>
+        <span class="method get">GET</span>
+        <span class="path">/genres/:name</span>
+      </h2>
+      <p>Returns information about a specific genre.</p>
+      <h3>Output:</h3>
+      <pre>
 {
-  "name": "Josh Trank",
-  "bio": "American filmmaker known for his found-footage sci-fi debut Chronicle (2012), later directed Fantastic Four (2015) and Capone (2020).",
-  "birthYear": 1984,
-  "deathYear": null
-}
-          </pre
-            >
-          </td>
-        </tr>
-        <tr>
-          <td class="post">POST</td>
-          <td>Registers a new user</td>
-          <td><blockquote>/users</blockquote></td>
-          <td>
-            <pre>
+  "Name": "Sci-Fi",
+  "Description": "Fiction based on imagined future technologies..."
+}</pre
+      >
+    </div>
+
+    <div class="endpoint endpoint-get">
+      <h2>
+        <span class="method get">GET</span>
+        <span class="path">/directors/:name</span>
+      </h2>
+      <p>Returns information about a specific director.</p>
+      <h3>Output:</h3>
+      <pre>
 {
-  "name": "test user new",
+  "Name": "Christopher Nolan",
+  "Bio": "...",
+  "BirthYear": "1970"
+}</pre
+      >
+    </div>
+
+    <div class="endpoint endpoint-post">
+      <h2>
+        <span class="method post">POST</span> <span class="path">/users</span>
+      </h2>
+      <p>Create a new user account.</p>
+      <h3>Input:</h3>
+      <pre>
+{
+  "username": "johndoe",
+  "password": "mypassword",
+  "email": "john@example.com",
+  "birthday": "1990-01-01"
+}</pre
+      >
+      <h3>Output:</h3>
+      <pre>
+{
+  "_id": "user123",
+  "username": "johndoe",
+  "email": "john@example.com",
   "favoriteMovies": []
-}
-          </pre
-            >
-          </td>
-          <td>
-            <pre>
+}</pre
+      >
+    </div>
+
+    <div class="endpoint endpoint-put">
+      <h2>
+        <span class="method put">PUT</span> <span class="path">/users/:id</span>
+      </h2>
+      <p>Update an existing user’s information.</p>
+      <h3>Input:</h3>
+      <pre>
 {
-  "name": "test user",
-  "favoriteMovies": [],
-  "id": "7688523e-5ca8-48b3-8a89-6a39c2f3000f"
-}
-           </pre
-            >
-          </td>
-        </tr>
-        <tr>
-          <td class="put">PUT</td>
-          <td>Updates and returns a user's username by ID</td>
-          <td><blockquote>/users/{id}</blockquote></td>
-          <td>
-            <pre>
+  "username": "johnny",
+  "password": "newpassword",
+  "email": "johnny@example.com",
+  "birthday": "1990-01-01"
+}</pre
+      >
+      <h3>Output:</h3>
+      <pre>
 {
-  "name": "test user new"
-}
-          </pre
-            >
-          </td>
-          <td>
-            <pre>
-{
-  "id": 1,
-  "name": "test user new",
-  "favoriteMovies": []
-}
-            </pre>
-          </td>
-        </tr>
-        <tr>
-          <td class="post">POST</td>
-          <td>Adds a movie by totle to a user's favorites list</td>
-          <td><blockquote>/users/{id}/{movieTitle}</blockquote></td>
-          <td>None</td>
-          <td>{MovieTitle} was added to {userId}'s favorites list</td>
-        </tr>
-        <tr></tr>
-        <tr>
-          <td class="delete">DELETE</td>
-          <td>Removes a movie by title from a user's favorites list</td>
-          <td><blockquote>/users/{id}/{movieTitle}</blockquote></td>
-          <td>None</td>
-          <td>{MovieTitle} was removed from {userId}'s favorites list</td>
-        </tr>
-        <tr>
-          <td class="delete">DELETE</td>
-          <td>Removes a user</td>
-          <td><blockquote>/users/{id}</blockquote></td>
-          <td>None</td>
-          <td>{User} was deleted.</td>
-        </tr>
-      </tbody>
-    </table>
+  "_id": "user123",
+  "username": "johnny",
+  "email": "johnny@example.com"
+}</pre
+      >
+    </div>
+
+    <div class="endpoint endpoint-post">
+      <h2>
+        <span class="method post">POST</span>
+        <span class="path">/users/:id/movies/:movieTitle</span>
+      </h2>
+      <p>Add a movie to a user’s list of favorites.</p>
+      <h3>Output:</h3>
+      <pre>"Inception was added to johndoe's favorites list"</pre>
+    </div>
+
+    <div class="endpoint endpoint-delete">
+      <h2>
+        <span class="method delete">DELETE</span>
+        <span class="path">/users/:id/movies/:movieTitle</span>
+      </h2>
+      <p>Remove a movie from a user’s list of favorites.</p>
+      <h3>Output:</h3>
+      <pre>"Inception was removed from johndoe's favorites list"</pre>
+    </div>
+
+    <div class="endpoint endpoint-delete">
+      <h2>
+        <span class="method delete">DELETE</span>
+        <span class="path">/users/:id</span>
+      </h2>
+      <p>Delete a user account.</p>
+      <h3>Output:</h3>
+      <pre>"User johndoe was successfully deleted"</pre>
+    </div>
   </body>
 </html>

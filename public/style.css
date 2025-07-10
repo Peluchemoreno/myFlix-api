@@ -1,61 +1,107 @@
+:root {
+  --primary: #007acc;
+  --background: #f5f5f5;
+  --post: #11cc00;
+  --put: #a300cc;
+  --delete: #cc0044;
+  --text: #222;
+  --code-bg: #eee;
+}
+
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 1rem;
 }
 
-html {
-  background-color: rgb(252, 249, 245);
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: var(--background);
+  color: var(--text);
+  margin: 0;
+  padding: 2rem;
 }
 
-.page__table {
-  max-width: 800px;
-  border: 1px solid black;
+h1 {
+  text-align: center;
+  color: var(--primary);
+}
+      
+.endpoint {
+  background: white;
+  border-left: 5px solid var(--primary);
+  padding: 1rem 1.5rem;
+  margin-bottom: 2rem;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
-td {
-  padding: 10px;
-  border: 1px solid black;
+.endpoint-get{
+  border-left: 5px solid var(--primary);
 }
 
-blockquote {
+.endpoint-post{
+  border-left: 5px solid var(--post);
+}
+
+.endpoint-put{
+  border-left: 5px solid var(--put)
+}
+
+.endpoint-delete{
+  border-left: 5px solid var(--delete);
+}
+
+.method {
   font-weight: bold;
-  letter-spacing: 1px;
+  color: white;
+  background: var(--primary);
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-right: 8px;
+  font-size: 0.9rem;
 }
 
-thead {
-  font-weight: bold;
+.path {
+  font-family: monospace;
+  background: #e0e0e0;
+  padding: 2px 6px;
+  border-radius: 3px;
 }
 
-.page__title, .page__description {
-  margin: 10px;
+pre {
+  background: var(--code-bg);
+  padding: 1rem;
+  overflow-x: auto;
+  border-radius: 4px;
+  margin-top: 0.5rem;
 }
 
-.page__title {
-  font-size: 32px;
+h2 {
+  margin-top: 0;
 }
 
-.page {
-  display: flex;
-  padding: 20px;
-  flex-direction: column;
-  align-items: center;
+@media (max-width: 600px) {
+  body {
+    padding: 1rem;
+  }
 }
 
+.center {
+  text-align: center;
+}
+      
 .get {
-  background-color: rgb(139, 222, 255);
+  background-color: var(--primary);
 }
 
 .delete {
-  background-color: rgb(255, 139, 139);
+  background-color: var(--delete);
 }
 
 .put {
-  background-color: rgb(255, 253, 139);
+  background-color: var(--put);
 }
 
 .post {
-  background-color: rgb(139, 255, 139);
+  background-color: var(--post);
 }
+
